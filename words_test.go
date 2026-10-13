@@ -1,6 +1,9 @@
 package main
 
-import "testing"
+import (
+	"go-reloaded/Reloaded"
+	"testing"
+)
 
 func TestWords(t *testing.T) {
 	cas := []struct {
@@ -11,7 +14,7 @@ func TestWords(t *testing.T) {
 	}
 
 	for _, c := range cas {
-		obtenu := words(c.entree)
+		obtenu := Reloaded.Words(c.entree)
 		if obtenu != c.attendu {
 			t.Errorf("entrée %q : obtenu %q, attendu %q", c.entree, obtenu, c.attendu)
 		}

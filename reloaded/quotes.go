@@ -1,4 +1,4 @@
-package main
+package Reloaded
 
 func quote(s []string) []string {
 	results := []string{}

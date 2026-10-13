@@ -1,11 +1,11 @@
-package main
+package Reloaded
 
 import (
 	"strconv"
 	"strings"
 )
 
-func words(s string) string {
+func Words(s string) string {
 	mots := strings.Fields(s)
 	results := []string{}
 
