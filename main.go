@@ -23,7 +23,7 @@ func main() {
 
 	contenu, err := os.ReadFile(os.Args[1])
 	if err != nil {
-		fmt.Println("Erreur dans la lecteur des fichiers :", err)
+		fmt.Println("Erreur dans la lecture des fichiers :", err)
 		return
 	}
 

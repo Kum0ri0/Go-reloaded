@@ -1,24 +1,28 @@
 package main
 
 import (
-	"fmt"
 	"strconv"
 	"strings"
 )
 
 func words(s string) string {
 	mots := strings.Fields(s)
-	fmt.Println(mots)
 	results := []string{}
 
 	for i := 0; i < len(mots); i++ {
 		mot := mots[i]
-		if mot == "(hex)" && len(results) > 0 {
-			results[len(results)-1] = hex(results[len(results)-1])
-		} else if mot == "(bin)" && len(results) > 0 {
-			results[len(results)-1] = bin(results[len(results)-1])
-		} else if mot == "(up)" && len(results) > 0 {
-			results[len(results)-1] = up(results[len(results)-1])
+		if mot == "(hex)" {
+			if len(results) > 0 {
+				results[len(results)-1] = hex(results[len(results)-1])
+			}
+		} else if mot == "(bin)" {
+			if len(results) > 0 {
+				results[len(results)-1] = bin(results[len(results)-1])
+			}
+		} else if mot == "(up)" {
+			if len(results) > 0 {
+				results[len(results)-1] = up(results[len(results)-1])
+			}
 		} else if mot == "(up," && i+1 < len(mots) {
 			nombreTexte := strings.TrimSuffix(mots[i+1], ")")
 			n, err := strconv.Atoi(nombreTexte)
@@ -28,8 +32,10 @@ func words(s string) string {
 				}
 				i++
 			}
-		} else if mot == "(low)" && len(results) > 0 {
-			results[len(results)-1] = low(results[len(results)-1])
+		} else if mot == "(low)" {
+			if len(results) > 0 {
+				results[len(results)-1] = low(results[len(results)-1])
+			}
 		} else if mot == "(low," && i+1 < len(mots) {
 			nombreTexte := strings.TrimSuffix(mots[i+1], ")")
 			n, err := strconv.Atoi(nombreTexte)
@@ -39,8 +45,10 @@ func words(s string) string {
 				}
 				i++
 			}
-		} else if mot == "(cap)" && len(results) > 0 {
-			results[len(results)-1] = capitalize(results[len(results)-1])
+		} else if mot == "(cap)" {
+			if len(results) > 0 {
+				results[len(results)-1] = capitalize(results[len(results)-1])
+			}
 		} else if mot == "(cap," && i+1 < len(mots) {
 			nombreTexte := strings.TrimSuffix(mots[i+1], ")")
 			n, err := strconv.Atoi(nombreTexte)
